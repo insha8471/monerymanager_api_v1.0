@@ -6,6 +6,8 @@ import com.insha.moneymanager.entity.ProfileEntity;
 import com.insha.moneymanager.repository.ProfileRepository;
 import com.insha.moneymanager.util.JwtUtil;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,7 +19,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ProfileService {
 
     private final ProfileRepository profileRepository;
@@ -26,12 +28,15 @@ public class ProfileService {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
 
+    @Value("${app.activation.url}")
+    private String activationUrl;
+
     public ProfileDTO registerProfile(ProfileDTO profileDTO) {
         ProfileEntity newProfile = toEntity(profileDTO);
         newProfile.setActivationToken(UUID.randomUUID().toString());
         newProfile = profileRepository.save(newProfile);
         // Send activation email
-        String activationLink = "http://localhost:8080/api/v1.0/activate?token=" + newProfile.getActivationToken();
+        String activationLink = activationUrl + "/api/v1.0/activate?token=" + newProfile.getActivationToken();
         String subject = "Activate your account";
         String body = "Please click the following link to activate your account: " + activationLink;
         emailService.sendMail(newProfile.getEmail(), subject, body);

@@ -22,7 +22,7 @@ public class NotificationService {
     private final EmailService emailService;
     private final ExpenseService expenseService;
 
-    @Value("&{money.manager.frontend.url}")
+    @Value("${money.manager.frontend.url}")
     private String frontEndurl;
 
 //    @Scheduled(cron = "0 * * * * *", zone = "IST") // every minute for testing purpose

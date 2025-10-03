@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "tbl_income")
-
 public class IncomeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
