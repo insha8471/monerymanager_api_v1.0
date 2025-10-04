@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class CategoryDTO {
     private Long id;
     private Long profileId;
-    private String name;
+    private String name;  //
     private String icon;
     private String type; // e.g., "income" or "expense"
     private LocalDateTime createdAt;

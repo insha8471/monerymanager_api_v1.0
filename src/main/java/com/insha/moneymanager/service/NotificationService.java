@@ -19,8 +19,9 @@ import java.util.List;
 public class NotificationService {
 
     private final ProfileRepository profileRepository;
-    private final EmailService emailService;
+//    private final EmailService emailService;
     private final ExpenseService expenseService;
+    private final BrevoEmailService brevoEmailService;
 
     @Value("${money.manager.frontend.url}")
     private String frontEndurl;
@@ -36,7 +37,7 @@ public class NotificationService {
                     "This is friendly reminder to add your income and expenses for today in money manager app.<br>" +
                     "<a href="+frontEndurl+" style='display: inline-block; padding: 10px 20px; background-color: #4CAF50;color:#fff; text-decoration: none; border-radius: 5px; font-weight:bold;'>Go to Money manager</a><br><br>" +
                     "<br><br>Best regards,<br>Money Manager Team";
-            emailService.sendMail(profile.getEmail(), "Daily Reminder: Add Your Income and Expenses", body);
+            brevoEmailService.sendEmail(profile.getEmail(), "Daily Reminder: Add Your Income and Expenses", body);
         }
     }
 
@@ -69,7 +70,7 @@ public class NotificationService {
                         table +
                         "<br><br>Best regards,<br>Money Manager Team";
 
-                emailService.sendMail(profile.getEmail(), "Your Daily Expense Summary", body);
+                brevoEmailService.sendEmail(profile.getEmail(), "Your Daily Expense Summary", body);
             }
 
         }

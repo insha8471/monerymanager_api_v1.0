@@ -7,6 +7,7 @@ import com.insha.moneymanager.repository.ProfileRepository;
 import com.insha.moneymanager.util.JwtUtil;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,15 +18,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Logger;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ProfileService {
 
     private final ProfileRepository profileRepository;
-    private final EmailService emailService;
+//    private final EmailService emailService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final BrevoEmailService brevoEmailService;
     private final JwtUtil jwtUtil;
 
     @Value("${app.activation.url}")
@@ -39,7 +43,8 @@ public class ProfileService {
         String activationLink = activationUrl + "/api/v1.0/activate?token=" + newProfile.getActivationToken();
         String subject = "Activate your account";
         String body = "Please click the following link to activate your account: " + activationLink;
-        emailService.sendMail(newProfile.getEmail(), subject, body);
+        brevoEmailService.sendEmail(newProfile.getEmail(), subject, body);
+        log.info("Activation URL: {}" , activationLink);
         return toDTO(newProfile);
     }
 

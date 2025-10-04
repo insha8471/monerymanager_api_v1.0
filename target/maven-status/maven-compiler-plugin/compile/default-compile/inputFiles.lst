@@ -24,6 +24,7 @@ C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\money
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\repository\ProfileRepository.java
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\security\JwtRequestFilter.java
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\service\AppUserDetailService.java
+C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\service\BrevoEmailService.java
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\service\CategoryService.java
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\service\DashboardService.java
 C:\Users\insha\Downloads\moneymanager\moneymanager\src\main\java\com\insha\moneymanager\service\EmailService.java

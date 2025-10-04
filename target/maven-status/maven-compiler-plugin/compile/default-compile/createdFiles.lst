@@ -18,6 +18,7 @@ com\insha\moneymanager\repository\IncomeRepository.class
 com\insha\moneymanager\service\NotificationService.class
 com\insha\moneymanager\controller\FilterController.class
 com\insha\moneymanager\dto\ProfileDTO.class
+com\insha\moneymanager\service\BrevoEmailService.class
 com\insha\moneymanager\dto\RecentTransactionDTO.class
 com\insha\moneymanager\dto\FilterDTO.class
 com\insha\moneymanager\entity\ProfileEntity.class
@@ -35,7 +36,6 @@ com\insha\moneymanager\dto\ProfileDTO$ProfileDTOBuilder.class
 com\insha\moneymanager\service\DashboardService.class
 com\insha\moneymanager\repository\ExpenseRepository.class
 com\insha\moneymanager\service\IncomeService.class
-com\insha\moneymanager\service\EmailService.class
 com\insha\moneymanager\dto\CategoryDTO.class
 com\insha\moneymanager\entity\CategoryEntity$CategoryEntityBuilder.class
 com\insha\moneymanager\MoneymanagerApplication.class
